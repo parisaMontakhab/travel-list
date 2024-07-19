@@ -26,16 +26,24 @@ export default App
 function Logo (){
   return (
   
-      <h1>  Far Away</h1>
+      <h1> 🏝️ Far Away 🧳</h1>
     
   )
 
 }
 
+
+
 function Form(){
+
+  function handleSubmit(e){
+  e.preventDefault();
+  alert("add")
+  }
+
 return(
-  <form className='add-form'>
-   <h3> what do you need for your trip?</h3>
+  <form className='add-form' onSubmit={handleSubmit}>
+   <h3> what do you need 😍 for your trip?</h3>
    <select>
     {Array.from({length:20},(_,i)=> i+1).map((num)=>(
       <option key={num} value={num}>{num}</option>
