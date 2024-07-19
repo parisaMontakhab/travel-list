@@ -56,7 +56,7 @@ return(
 
 function Item({item}){
   return(
-    <li key={item.id} style={item.packed ? {} : {textDecoration :"line-through"}}>
+    <li key={item.id} style={item.packed ? {textDecoration :"line-through"} : {}}>
       <span>{item.quantity} {item.description}</span>
       <button > X </button>
     </li>
