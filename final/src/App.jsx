@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-    hello
+   <Logo/>
     </>
   )
 }
@@ -15,6 +15,11 @@ export default App
 
 
 function Logo (){
+  return (
+  
+      <h1>  Far Away</h1>
+    
+  )
 
 }
 
@@ -27,5 +32,5 @@ function PackingList(){
 }
 
 function Stats(){
-  
+
 }
