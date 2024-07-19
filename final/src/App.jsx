@@ -5,10 +5,12 @@ function App() {
   
 
   return (
-    <>
+    <div className='app'>
    <Logo/>
    <Form/>
-    </>
+   <PackingList/>
+   <Stats/>
+    </div>
   )
 }
 
@@ -41,7 +43,8 @@ return(
 function Stats(){
 return(
   <footer>
-    you have X items on your list, and you already packed X%
+    <em> you have X items on your list, and you already packed X%</em>
+   
   </footer>
 )
 }
