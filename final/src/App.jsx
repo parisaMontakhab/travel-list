@@ -33,7 +33,9 @@ return(
 }
 
 function PackingList(){
-
+return(
+  <div className='list'>List</div>
+)
 }
 
 function Stats(){
