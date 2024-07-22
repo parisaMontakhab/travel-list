@@ -8,6 +8,7 @@ const initialItems = [
 
 
 function App() {
+
   return (
     <div className="app">
       <Logo />
@@ -27,11 +28,18 @@ function Logo() {
 function Form() {
   const [desc, setDesc] = useState("");
   const [quantity, setQuantity] = useState(1);
+  const [items,setItems] = useState([]);
+
+  function handleAddItem(item){
+   setItems((items)=>[...items,item])
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
     if (!desc) return;
     const newItem = { desc, quantity, packed: false, id: new Date() };
+   
+    handleAddItem(newItem);
     setDesc("");
     setQuantity(1);
     console.log(newItem);
