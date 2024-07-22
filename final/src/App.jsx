@@ -1,10 +1,6 @@
 import { useState } from "react";
 
-const initialItems = [
-  { id: 1, description: "Passports", quantity: 2, packed: true },
-  { id: 2, description: "Socks", quantity: 12, packed: false },
-  { id: 3, description: "Charger", quantity: 1, packed: true },
-];
+
 
 
 function App() {
@@ -12,17 +8,30 @@ function App() {
   function handleAddItem(item){
     setItems((items)=>[...items,item])
    }
+ 
+
+   function handleDeletItem(id){
+    
+      const filtredArray = items.filter((i)=> i.id !== id);
+      setItems(filtredArray);
+    
+    
+    
+   }
   return (
     <div className="app">
       <Logo />
       <Form onAddItems={handleAddItem} />
-      <PackingList items={items}/>
+      <PackingList items={items} onDelet={handleDeletItem}/>
       <Stats />
     </div>
   );
 }
 
 export default App;
+
+
+
 
 function Logo() {
   return <h1> 🏝️ Far Away 🧳</h1>;
@@ -70,19 +79,19 @@ function Form({onAddItems}) {
   );
 }
 
-function PackingList({items}) {
+function PackingList({items,onDelet}) {
   return (
     <div className="list">
       <ul>
         {items.map((item) => (
-          <Item item={item} key={item.id} />
+          <Item item={item} key={item.id} onDelet={onDelet}/>
         ))}
       </ul>
     </div>
   );
 }
 
-function Item({ item }) {
+function Item({ item ,onDelet}) {
   return (
     <li
       key={item.id}
@@ -91,7 +100,7 @@ function Item({ item }) {
       <span>
         {item.quantity} {item.desc}
       </span>
-      <button> X </button>
+      <button onClick={()=>onDelet(item.id)}> X </button>
     </li>
   );
 }
