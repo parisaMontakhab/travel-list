@@ -97,6 +97,7 @@ function Item({ item ,onDelet}) {
       key={item.id}
       style={item.packed ? { textDecoration: "line-through" } : {}}
     >
+      <input type="checkbox"/>
       <span>
         {item.quantity} {item.desc}
       </span>
