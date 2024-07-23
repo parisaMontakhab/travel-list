@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function App() {
   const [items,setItems] = useState([]);
-  const numberOfItems = items.length
+  
 
   
   function handleAddItem(item){
@@ -33,7 +33,7 @@ function App() {
       <Logo />
       <Form onAddItems={handleAddItem} />
       <PackingList items={items} onDelet={handleDeletItem} onToggleItem={handleToggleItem}/>
-      <Stats numberOfItems ={numberOfItems}/>
+      <Stats items={items} />
     </div>
   );
 }
@@ -116,7 +116,8 @@ function Item({ item ,onDelet,onToggleItem}) {
   );
 }
 
-function Stats({numberOfItems}) {
+function Stats({items}) {
+  const numberOfItems = items.length
   return (
     <footer className="stats">
       <em> you have {numberOfItems} items on your list, and you already packed X%</em>
