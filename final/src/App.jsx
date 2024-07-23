@@ -5,6 +5,9 @@ import { useState } from "react";
 
 function App() {
   const [items,setItems] = useState([]);
+  const numberOfItems = items.length
+
+  
   function handleAddItem(item){
     setItems((items)=>[...items,item])
    }
@@ -30,7 +33,7 @@ function App() {
       <Logo />
       <Form onAddItems={handleAddItem} />
       <PackingList items={items} onDelet={handleDeletItem} onToggleItem={handleToggleItem}/>
-      <Stats />
+      <Stats numberOfItems ={numberOfItems}/>
     </div>
   );
 }
@@ -113,10 +116,10 @@ function Item({ item ,onDelet,onToggleItem}) {
   );
 }
 
-function Stats() {
+function Stats({numberOfItems}) {
   return (
     <footer className="stats">
-      <em> you have X items on your list, and you already packed X%</em>
+      <em> you have {numberOfItems} items on your list, and you already packed X%</em>
     </footer>
   );
 }
